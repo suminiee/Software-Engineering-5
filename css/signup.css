@@ -1,9 +1,4 @@
-img {
-  width: 300px;
-  margin: 0 auto;
-  padding: 30px;
-}
-.login {
+.signup {
   margin-top: 50px;
   padding: 100px 0 240px;
   background-repeat: no-repeat;
@@ -11,42 +6,44 @@ img {
   background-attachment: fixed;
   background-size: cover;
 }
-.login__card {
+.signup__card {
   width: 400px;
   margin: 0 auto;
   border-radius: 6px;
 } 
-.login__card form {
+.signup__card form {
   padding: 30px 22px;
 }
-.login__card form input {
+.signup__card form input, select{
   width: 100%;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 4px;
   outline: none;
   box-sizing: border-box;
-  font-size: 14px
+  font-size: 14px;
+  color: #555;
 }
-.login__card form [type="submit"] {
+
+.signup__card form [type="submit"] {
   background-color: #FE7373;
   border: none;
   color: #fff;
   font-size: 20px;
   cursor: pointer;
+  margin: 20px 0;
 }
-.login__card .actions {
-  display: flex;
-}
-.login__card .actions a {
-  flex-grow: 1;
-  flex-basis: 0;
-  text-align: center;
-  padding: 10px;
+.signup__card p {
+  display: block; /*수직 정렬하기 */
+  margin: 0 0 8px 3px;
+  font-size: 17px;
+  font-weight: 700;
   color: #555;
-  font-size: 14px;
+
 }
-.login__card .actions a:hover {
-  text-decoration: underline;
-} 
+.signup__card .notice {
+  font-weight: 500;
+  font-size: 12px;
+}
+
