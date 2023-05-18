@@ -19,14 +19,30 @@ repositories {
 }
 
 dependencies {
+	//Spring Validation 추가
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	//Spring web 추가
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+    //JPA 추가
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//Querydsl 추가
+	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
+	annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jakarta"
+	annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+	annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+	//Lombok 추가
 	compileOnly 'org.projectlombok:lombok'
+	//Mysql 추가
 	runtimeOnly 'com.mysql:mysql-connector-j'
+
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+clean {
+	delete file('src/main/generated')
 }
