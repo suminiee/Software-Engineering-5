@@ -1,14 +1,13 @@
 package com.vocabulary.web.word;
 
 import com.vocabulary.domain.word.domain.Word;
-import com.vocabulary.domain.word.dto.WordDeleteForm;
+
+import com.vocabulary.domain.word.dto.WordForm.*;
 import com.vocabulary.domain.word.dto.WordSearchCond;
-import com.vocabulary.domain.word.dto.WordUpdateForm;
 import com.vocabulary.web.login.session.MemberSessionDto;
 import com.vocabulary.domain.member.domain.Role;
 import com.vocabulary.domain.word.repository.WordRepository;
 import com.vocabulary.web.login.argumentresolver.Login;
-import com.vocabulary.domain.word.dto.WordSaveForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ui.Model;
