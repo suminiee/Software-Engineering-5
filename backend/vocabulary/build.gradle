@@ -34,6 +34,8 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	//Mysql 추가
 	runtimeOnly 'com.mysql:mysql-connector-j'
+	//Json Parser 추가
+	implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
 
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
