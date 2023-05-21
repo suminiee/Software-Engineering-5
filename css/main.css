@@ -1,0 +1,43 @@
+header a {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 20px;
+  display: block;
+  color: #656565;
+}
+header a:hover {
+  color: #FE7373;
+}
+
+header .main-menu {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 52px;
+  left: 220px;
+  margin: auto;
+  z-index: 1;
+  display: flex;
+}
+
+header .signBtn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 60px;
+  right: 0;
+  margin: auto;
+  z-index: 1;
+  display: flex;
+}
+header .signBtn .signup {
+  margin: auto;
+  color: white;
+  border-radius: 15px;
+  background-color: #FE7373;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 15px;
+  display: block;
+  cursor: pointer;
+}

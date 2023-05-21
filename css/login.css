@@ -1,7 +1,10 @@
+
 img {
-  width: 300px;
   margin: 0 auto;
   padding: 30px;
+}
+.logo img {
+  width: 300px;
 }
 .login {
   margin-top: 50px;
