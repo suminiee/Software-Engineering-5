@@ -1,0 +1,47 @@
+/* COMMON */
+a {
+  text-decoration: none;
+}
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+img {
+  display: block;
+}
+.inner {
+  width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* HEADER */
+header {
+  width: 100%;
+  border-bottom: 1px solid #c8c8c8;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+}
+header > .inner {
+  height: 120px;
+}
+header .logo {
+  height: 52px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+header img {
+  width: 200px;
+}
+header .page__name {
+  position: absolute;
+  left: 220px;
+  text-align: center;
+  line-height: 120px;
+  font-size: 27px;
+  font-weight: 700;
+  color: #8d8d8d;
+}

@@ -1,0 +1,55 @@
+
+img {
+  margin: 0 auto;
+  padding: 30px;
+}
+.logo img {
+  width: 300px;
+}
+.login {
+  margin-top: 50px;
+  padding: 100px 0 240px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.login__card {
+  width: 400px;
+  margin: 0 auto;
+  border-radius: 6px;
+} 
+.login__card form {
+  padding: 30px 22px;
+}
+.login__card form input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 14px
+}
+.login__card form [type="submit"] {
+  background-color: #FE7373;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+.login__card .actions {
+  display: flex;
+}
+.login__card .actions a {
+  flex-grow: 1;
+  flex-basis: 0;
+  text-align: center;
+  padding: 10px;
+  color: #555;
+  font-size: 14px;
+}
+.login__card .actions a:hover {
+  text-decoration: underline;
+} 
