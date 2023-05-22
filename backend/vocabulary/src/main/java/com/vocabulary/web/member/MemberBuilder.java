@@ -5,10 +5,10 @@ import com.vocabulary.web.member.MemberForm.*;
 
 public class MemberBuilder {
 
-    public static Member build(SignUpForm form, Boolean social) {
+    public static Member build(String loginId, String password, SignUpForm form, Boolean social) {
         Member member = new Member();
-        member.setLoginId(form.getLoginId());
-        member.setPassword(form.getPassword());
+        member.setLoginId(loginId);
+        member.setPassword(password);
         member.setNickname(form.getNickname());
         member.setDailyWord(form.getDailyWord());
 
