@@ -7,9 +7,9 @@
   <title>Document</title>
   <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/login.css">
-  <script defer src="../js/common.js"></script>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/login.css">
+  <script defer src="/js/common.js"></script>
   <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
@@ -19,35 +19,21 @@
   <div class="inner">
     <section class="login">
       <div class="logo">
-        <img src="../images/상명로고.png" alt="logo">
+        <img src="/images/상명로고.png" alt="logo">
       </div>
         <div class="login__card">
-        <form action="" method="post">
+        <form action="/login" method="post">
           <input type="text" name="id" placeholder="아이디" />
           <input type="password" name="pass" placeholder="비밀번호" />
           <input type="submit" value="로그인" />
           <div class="actions">
             <a href="../signup/signup1.html">회원 가입</a>
-            
           </div> 
           <!-- 네이버 로그인 버튼 노출 영역 -->
-          <div id="naver_id_login"></div>     
+          <a href="http://localhost:8080/login/naver"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
         </form>
       </div>
     </section>
-
-    <!-- 네이버 로그인 버튼 노출 영역 -->
-  <div id="naver_id_login"></div>
-  <!-- //네이버 로그인 버튼 노출 영역 -->
-  <script type="text/javascript">
-    var naver_id_login = new naver_id_login("aDhfca7FrwjS0akSQbXc", "http://localhost:5500/index.html");
-    var state = naver_id_login.getUniqState();
-    naver_id_login.setButton("green", 3,50);
-    naver_id_login.setDomain("http://localhost:5500/login/login.html");
-    naver_id_login.setState(state);
-    naver_id_login.setPopup();
-    naver_id_login.init_naver_id_login();
-  </script>
   </div>
 </body>
 </html>
