@@ -5,11 +5,13 @@ import com.vocabulary.domain.word.dto.WordForm.*;
 import com.vocabulary.domain.word.dto.WordSearchCond;
 import com.vocabulary.domain.word.repository.WordRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Slf4j
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -34,8 +36,8 @@ public class WordService {
     public List<Word> findAll() {
         return wordRepository.findAll();
     }
-    public List<Word> findAll(WordSearchCond cond) {
-        return wordRepository.findAll(cond);
+    public List<Word> findAllByCond(WordSearchCond cond) {
+        return wordRepository.findAllByCond(cond);
     }
 
     public List<Word> getRandomWords(Integer maxResultSize) {

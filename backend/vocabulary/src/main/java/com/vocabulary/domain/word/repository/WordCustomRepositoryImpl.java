@@ -18,7 +18,6 @@ import static com.vocabulary.domain.word.domain.QWord.word;
 
 @Repository
 @Transactional
-@RequiredArgsConstructor
 public class WordCustomRepositoryImpl implements WordCustomRepository {
 
     private final EntityManager em;
@@ -36,7 +35,7 @@ public class WordCustomRepositoryImpl implements WordCustomRepository {
     }
 
     @Override
-    public List<Word> findAll(WordSearchCond cond) {
+    public List<Word> findAllByCond(WordSearchCond cond) {
         String searchCond = cond.getSearchCond();
         return query
                 .select(word)
