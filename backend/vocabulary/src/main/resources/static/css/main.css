@@ -41,6 +41,19 @@ header .signBtn .signup {
   display: block;
   cursor: pointer;
 }
+header .myPage__icon {
+  color: #656565;
+  position: absolute;
+  height: 40px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 40px;
+  margin: auto;
+}
+header .myPage_icon{
+
+}
 
 /* 마이페이지 */
 .myPage__nav {
@@ -52,6 +65,7 @@ header .signBtn .signup {
   position: fixed;
   height: 100%;
   color: white;
+  display: none;
 }
 
 .myPage__nav a {
