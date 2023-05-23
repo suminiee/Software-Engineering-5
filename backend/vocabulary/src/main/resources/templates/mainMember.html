@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="../static/css/common.css">
   <link rel="stylesheet" href="../static/css/main.css">
-  <script defer src="../static/js/common.js"></script>
+  <script defer src="../static/js/main.js"></script>
 
   <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -18,7 +18,7 @@
 <body>
 <!-- 메인 페이지 -->
 <!-- HEADER -->
-<div>
+
 
   <header>
     <!-- 메인 메뉴바 -->
@@ -30,48 +30,52 @@
       <ul class="main-menu">
         <li class="menu">
           <div class="menu__name">
-            <a href="" onclick="service()">단어 학습</a>
+            <a href="" onclick="voca()">단어 학습</a>
           </div>
         </li>
         <li class="menu">
           <div class="menu__name">
-            <a href="" onclick="service()">데일리 테스트</a>
+            <a href="" onclick="test()">데일리 테스트</a>
           </div>
         </li>
         <li class="menu">
           <div class="menu__name">
-            <a href="" onclick="service()">나의 단어장</a>
+            <a href="" onclick="group()">나의 단어장</a>
           </div>
         </li>
       </ul>
-
-      <!-- 로그인/회원가입 -->
-      <div class="signBtn">
-        <div class="signin">
-          <a href="/login">로그인</a>
-        </div>
-        <div class="signup" onclick="location.href=('/signup/signup1.html')">
-          회원가입
-        </div>
-      </div>
     </div>
   </header>
+  
+      <!-- 마이페이지 -->
+      <section class="myPage__nav hidden">
+        <i class="material-icons close">close</i>
+        <div class="userInfo">
+          <!-- 사용자 레벨 -->
+          <!-- 학습 목표 -->
+        </div>
 
-</div>
+        <!-- 마이페이지 메뉴 -->
+        <ul class="myPage">
+          <li class="myPage__menu">
+            <div class="menu__name">
+              <a href="">레벨 테스트 진행하기</a>
+            </div>
+          </li>
+          <li class="menu">
+            <div class="menu__name">
+              <a href="">학습 현황</a>
+            </div>
+          </li>
+          <li class="menu">
+            <div class="menu__name">
+              <a href="">학습 목표 및 개인 정보 수정</a>
+            </div>
+          </li>
+        </ul>
+
+        <!-- 로그아웃 버튼 -->
+        <div class="logout" onclick="">로그아웃</div>
+      </section>
 
 
-<!-- 네이버 로그인 버튼 노출 영역 -->
-<div id="naver_id_login"></div>
-<!-- //네이버 로그인 버튼 노출 영역 -->
-
-<!-- 네이버아이디로로그인 초기화 Script -->
-<!--<script type="text/javascript">-->
-<!--	var naver_id_login = new naver_id_login("_SKWo4UGbkczjCyVpcHR", "http://localhost:5500/index.html");-->
-<!--	var state = naver_id_login.getUniqState();-->
-<!--	naver_id_login.setButton("green", 3,50);-->
-<!--	naver_id_login.setDomain("http://localhost:5500/login/login.html");-->
-<!--	naver_id_login.setPopup();-->
-<!--	naver_id_login.init_naver_id_login();-->
-<!--</script>-->
-</body>
-</html>

@@ -41,3 +41,28 @@ header .signBtn .signup {
   display: block;
   cursor: pointer;
 }
+
+/* 마이페이지 */
+.myPage__nav {
+  z-index: 10;
+  right: 0;
+  width: 500px;
+  background-color: #555;
+  border-right: 1px solid #ddd;
+  position: fixed;
+  height: 100%;
+  color: white;
+}
+
+.myPage__nav a {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 20px;
+  display: block;
+  /* color: #656565; */
+}
+.myPage__nav a:hover {
+  color: #FE7373;
+
+}
