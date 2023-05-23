@@ -70,7 +70,10 @@ public class NaverLoginController {
         Member loginMember = loginService.login(loginForm.getLoginId(), loginForm.getPassword());
 
         if (loginMember == null) {
-            return "login/SignInForm";
+            request.getSession().setAttribute("loginId", loginForm.getLoginId());
+            request.getSession().setAttribute("password", loginForm.getPassword());
+            request.getSession().setAttribute("social", true);
+            return "redirect:/signup/2";
         }
 
         MemberSessionDto sessionDto = new MemberSessionDto();

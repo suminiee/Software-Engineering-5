@@ -52,4 +52,9 @@ img {
 }
 .login__card .actions a:hover {
   text-decoration: underline;
-} 
+}
+.field-error {
+  font-size: 14px;
+  border-color: #dc3545;
+  color: #dc3545;
+}

@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+
 @Slf4j
 @RestController
 @RequiredArgsConstructor
@@ -38,7 +39,7 @@ public class WordController {
      */
     @GetMapping("/cond")
     public String condWords(@ModelAttribute WordSearchCond cond, Model model) {
-        model.addAttribute("wordList", wordService.findAll(cond));
+        model.addAttribute("wordList", wordService.findAllByCond(cond));
         return "words";
     }
 

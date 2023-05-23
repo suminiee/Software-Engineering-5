@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+   
+    <meta charset="utf-8">
+    <title>wordbook</title>
+    <link rel="stylesheet" type="text/css" href="wordbook.css">
+  </head>
+  <body>
+       <div class ="icon">
+           <a href="#"><img src="%EC%83%81%EB%AA%85%EB%A1%9C%EA%B3%A0.png" alt="Icon" width="400"></a>
+       </div>
+       <div class ="title">단어장</div>
+       
+       <span><button id="deleteButton">삭제</button>
+        <button id="finishButton" onclick="location.href = 'wordbook.html' ">완료</button></span>
+        
+        
+        
+       <hr style="border:3px solid #8d8d8d;"/>
+       
+    <div class="wordbook_btn">  
+   <span><input type="checkbox" id="Checkbox1" onchange="activateButton('Checkbox1', 'edit_wrong_word_Button')"><button id="edit_wrong_word_Button" disabled>오답 노트</button>
+       <input type="checkbox" id="Checkbox2" onchange="activateButton('Checkbox2', 'edit_confused_word_Button')"><button id="edit_confused_word_Button" disabled>헷갈리는 단어</button></span>
+        <br>
+        <span><input type="checkbox" id="Checkbox3" onchange="activateButton('Checkbox3', 'edit_today_word_Button')"><button id="edit_today_word_Button" disabled>오늘 학습한 단어</button>
+       <input type="checkbox" id="Checkbox4" onchange="activateButton('Checkbox4', 'edit_RC_Button')"><button id="edit_RC_Button" disabled>RC</button></span>
+       <br>
+       <span><input type="checkbox" id="Checkbox5" onchange="activateButton('Checkbox5', 'edit_LC_Button')"><button id="edit_LC_Button" disabled>LC</button>
+       <input type="checkbox" id="Checkbox6" onchange="activateButton('Checkbox6', 'edit_date_word_Button')"><button id="edit_date_word_Button" disabled>3월/4일 학습한 단어</button></span>
+       </div>
+    
+    
+    
+    <script >
+       function activateButton(checkboxId, buttonId) {
+      var checkbox = document.getElementById(checkboxId);
+      var button = document.getElementById(buttonId);
+      
+      if (checkbox.checked) {
+        button.classList.add("enabled");
+                button.disabled = false;
+      } else {
+       button.classList.remove("enabled");
+                button.disabled = true;
+      }
+    }
+    </script>
+  </body>
+</html>

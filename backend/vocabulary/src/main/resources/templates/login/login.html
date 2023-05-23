@@ -22,12 +22,16 @@
         <img src="../../static/images/상명로고.png" alt="logo">
       </div>
         <div class="login__card">
-        <form action="/login" method="post">
-          <input type="text" name="id" placeholder="아이디" />
-          <input type="password" name="pass" placeholder="비밀번호" />
+        <form action="/login" method="post" th:object="${loginForm}">
+          <div th:if="${#fields.hasGlobalErrors()}">
+            <p class="field-error" th:each="err : ${#fields.globalErrors()}"
+                th:text="${err}">전체 오류 메시지</p>
+          </div>
+          <input type="text" name="loginId" placeholder="아이디" />
+          <input type="password" name="password" placeholder="비밀번호" />
           <input type="submit" value="로그인" />
           <div class="actions">
-            <a href="../signup/signup1.html">회원 가입</a>
+            <a href="/signup/1">회원 가입</a>
           </div> 
           <!-- 네이버 로그인 버튼 노출 영역 -->
           <a href="http://localhost:8080/login/naver"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>

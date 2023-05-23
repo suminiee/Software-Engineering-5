@@ -8,7 +8,7 @@ import java.util.List;
 public interface WordCustomRepository {
 
     void delete(Integer wordId);
-    List<Word> findAll(WordSearchCond cond);
+    List<Word> findAllByCond(WordSearchCond cond);
     List<Word> getRandomWords(Integer maxResultSize);
 
 }

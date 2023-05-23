@@ -46,4 +46,9 @@
   font-weight: 500;
   font-size: 12px;
 }
+.field-error {
+  font-size: 14px;
+  border-color: #dc3545;
+  color: #dc3545;
+}
 
