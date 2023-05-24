@@ -44,4 +44,12 @@ header .page__name {
   font-size: 27px;
   font-weight: 700;
   color: #8d8d8d;
+  padding: 0 20px;
+  /* margin: auto; */
+}
+.error-msg {
+  margin: 8px 0 5px 10px;
+  font-size: 13px;
+  /* border-color: #dc3545; */
+  color: #dc3545;
 }

@@ -81,18 +81,30 @@ header .myPage__icon {
 .myPage__nav a {
   color: white;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 500;
   padding: 20px;
   display: block;
 }
 .myPage__nav a:hover {
   color: #FE7373;
 }
+.myPage__nav ul.myPage li:first-child:before {
+  display: block;
+  content: "";
+  height: 3px;
+  width: 150px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  margin: 20px 30px;
+  cursor: none;
+}
 .myPage__nav .logout {
   color: white;
   font-size: 20px;
   font-weight: 700;
   padding: 20px;
+  margin: 80px 0;
   display: block;
   cursor: pointer;
 }

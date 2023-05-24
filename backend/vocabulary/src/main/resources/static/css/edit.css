@@ -1,4 +1,4 @@
-.signup {
+.edit {
   margin-top: 50px;
   padding: 100px 0 240px;
   background-repeat: no-repeat;
@@ -6,18 +6,15 @@
   background-attachment: fixed;
   background-size: cover;
 }
-.signup__card {
+.edit__card {
   width: 400px;
   margin: 0 auto;
   border-radius: 6px;
 } 
-.signup__card form {
+.edit__card form {
   padding: 30px 22px;
 }
-
-
-/* .signup__card form  */
-input {
+.edit__card form input, select{
   width: 100%;
   /* margin-bottom: 20px; */
   padding: 15px;
@@ -27,25 +24,9 @@ input {
   box-sizing: border-box;
   font-size: 14px;
   color: #555;
-
-  text-indent: 10px;
 }
 
-input, select{
-  width: 100%;
-  /* margin-bottom: 20px; */
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  outline: none;
-  box-sizing: border-box;
-  font-size: 14px;
-  color: #555;
-
-  text-indent: 10px;
-}
-
-.signup__card form [type="submit"] {
+.edit__card form [type="submit"] {
   background-color: #FE7373;
   border: none;
   color: #fff;
@@ -53,24 +34,19 @@ input, select{
   cursor: pointer;
   margin: 20px 0;
 }
-.signup__card p {
+.edit__card p {
   display: block; /*수직 정렬하기 */
   margin: 0 0 8px 3px;
   font-size: 17px;
   font-weight: 700;
   color: #555;
 }
-.signup__card .input__name {
+.edit__card .input__name {
   margin-top: 20px;
 }
-.signup__card .notice {
+.edit__card .notice {
   font-weight: 500;
   font-size: 12px;
 }
-.signup__card i{
-    /* position: absolute; */
-    left: 75%;
-    top: 27px;
-    color: orange;
-    cursor: pointer;
-}
+
+

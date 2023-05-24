@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit page</title>
+  <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/common.css">
+  <link rel="stylesheet" href="../static/css/edit.css">
+  <script defer src="../static/js/main.js"></script>
+
+  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+</head>
+<body>
+<!-- 학습 목표 및 개인 정보 수정 페이지 -->
+<!-- HEADER -->
+<header>
+
+  <!-- 메인 메뉴바 -->
+  <div class="inner">
+    <a href="/static" class="logo">
+      <img src="../static/images/상명로고.png" alt="logo">
+    </a>
+    <div class="page__name">학습 목표 및 개인 정보 수정</div>
+  </div>
+</header>
+
+<!-- 정보 수정 section -->
+<section class="edit">
+  <div class="edit__card">
+    <form action="" method="post" th:object="${signUpBase}">
+      <p class="input__name">닉네임</p>
+      <input id="nickname" type="text" placeholder="${nickname}" name="val" disabled>
+      
+      <p class="input__name">아이디</p>
+      <input id="id" type="text" placeholder="${loginID}" name="val" disabled>
+      
+      <p class="input__name">비밀번호</p>
+      <p class="notice">알파벳 소문자,숫자 포함 / 5-15자 이내</p>
+      <input id="pw" type="password" name="password" placeholder="비밀번호" />
+      <div class="error-msg" th:class="field-error" th:errors="*{password}">비밀번호 오류</div>
+      
+      <p class="input__name">비밀번호 확인</p>
+      <input id="pw__confirm"type="password" name="passCheck" placeholder="비밀번호 확인" />
+      <div class="error-msg" th:class="field-error" th:errors="*{passCheck}">비밀번호 오류</div>
+      
+      <p class="input__name">학습 목표 설정</p>
+      <select id="dailyWord" name="dailyWord">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+        <option value="60">60</option>
+        <option value="70">70</option>
+        <option value="80">80</option>
+        <option value="90">90</option>
+        <option value="100">100</option>
+      </select>
+      <div class="error-msg" th:class="field-error" th:errors="*{dailyWord}">목표 설정 오류</div>
+      
+      <input type="submit" value="설정 완료" />
+    </form>
+  </div>
+</section>
+
+
+</body>
+</html>
