@@ -50,16 +50,14 @@ header .myPage__icon {
   right: 0;
   font-size: 40px;
   margin: auto;
-}
-header .myPage_icon{
-
+  cursor: pointer;
 }
 
 /* 마이페이지 */
-.myPage__nav {
+.myPage__nav{
   z-index: 10;
   right: 0;
-  width: 500px;
+  width: 400px;
   background-color: #555;
   border-right: 1px solid #ddd;
   position: fixed;
@@ -67,16 +65,37 @@ header .myPage_icon{
   color: white;
   display: none;
 }
-
+.myPage__nav.active {
+  display: block;
+}
+.myPage__nav i {
+  /* position: absolute; */
+  height: 40px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  font-size: 40px;
+  padding: 20px;
+  cursor: pointer;
+}
 .myPage__nav a {
   color: white;
   font-size: 20px;
   font-weight: 700;
   padding: 20px;
   display: block;
-  /* color: #656565; */
 }
 .myPage__nav a:hover {
   color: #FE7373;
-
+}
+.myPage__nav .logout {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 20px;
+  display: block;
+  cursor: pointer;
+}
+.myPage__nav .logout:hover {
+  color: #FE7373;
 }
