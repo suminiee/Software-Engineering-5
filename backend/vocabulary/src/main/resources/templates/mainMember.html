@@ -56,8 +56,26 @@
       <section class="myPage__nav">
         <i class="material-icons close" id="close-button">close</i>
         <div class="userInfo">
+
           <!-- 사용자 레벨 -->
+          <div class="userInfo__name">
+            <c:out value="${user.nickname }"/>님의 레벨    
+          </div>
+          <div class="userLevel">
+            Lv.<c:out value="${user.level }"/>
+          </div>
+
           <!-- 학습 목표 -->
+          <div class="userInfo__name">
+            오늘의 학습 목표
+          </div>
+          <div class="userProgress">
+            <c:out value="${user.userProgress }"/>
+          </div>
+          <div class="userGoal">
+            /<c:out value="${user.userGoal }"/>
+          </div>
+
         </div>
 
         <!-- 마이페이지 메뉴 -->
@@ -74,7 +92,7 @@
           </li>
           <li class="menu">
             <div class="menu__name">
-              <a href="">학습 목표 및 개인 정보 수정</a>
+              <a href="../templates/edit.html">학습 목표 및 개인 정보 수정</a>
             </div>
           </li>
         </ul>
