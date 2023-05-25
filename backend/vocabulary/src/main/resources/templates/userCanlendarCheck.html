@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Calendar Check</title>
+  <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/common.css">
+  <link rel="stylesheet" href="../static/css/main.css">
+  <link rel="stylesheet" href="../static/css/userCalendarCheck.css">
+  <script defer src="../static/js/userCalendarCheck.js"></script>
+  <script defer src="../static/js/common.js"></script>
+  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <!-- 메인 메뉴바 -->
+    <div class="inner">
+      <a href="/" class="logo">
+        <img src="../static/images/상명로고.png" alt="logo">
+      </a>
+
+      <ul class="main-menu">
+        <li class="menu">
+          <div class="menu__name">
+            <a href="" onclick="voca()">단어 학습</a>
+          </div>
+        </li>
+        <li class="menu">
+          <div class="menu__name">
+            <a href="" onclick="test()">데일리 테스트</a>
+          </div>
+        </li>
+        <li class="menu">
+          <div class="menu__name">
+            <a href="" onclick="group()">나의 단어장</a>
+          </div>
+        </li>
+      </ul>
+
+      <i class="material-icons myPage__icon" id="toggle-button">
+        person
+      </i>
+    </div>
+  </header>
+
+  <!-- 마이페이지 -->
+  <section class="myPage__nav">
+    <i class="material-icons close" id="close-button">close</i>
+    <div class="userInfo">
+
+      <!-- 사용자 레벨 -->
+      <div class="userInfo__name">
+        <c:out value="${user.nickname }"/>님의 레벨    
+      </div>
+      <div class="userLevel">
+        Lv.<c:out value="${user.level }"/>
+      </div>
+
+      <!-- 학습 목표 -->
+      <div class="userInfo__name">
+        오늘의 학습 목표
+      </div>
+      <div class="userProgress">
+        <c:out value="${user.userProgress }"/>
+      </div>
+      <div class="userGoal">
+        /<c:out value="${user.userGoal }"/>
+      </div>
+
+    </div>
+
+    <!-- 마이페이지 메뉴 -->
+    <ul class="myPage">
+      <li class="myPage__menu">
+        <div class="menu__name">
+          <a href="">레벨 테스트 진행하기</a>
+        </div>
+      </li>
+      <li class="menu">
+        <div class="menu__name">
+          <a href="../templates/userCanlendarCheck.html">학습 현황</a>
+        </div>
+      </li>
+      <li class="menu">
+        <div class="menu__name">
+          <a href="../templates/edit.html">학습 목표 및 개인 정보 수정</a>
+        </div>
+      </li>
+    </ul>
+
+    <!-- 로그아웃 버튼 -->
+    <div class="logout" onclick="">로그아웃</div>
+  </section>
+
+<div class="inner">
+<!-- 캘린더 -->
+<section class="sec_cal">
+  <div class="cal_nav">
+    <a href="javascript:;" class="nav-btn go-prev">prev</a>
+    <div class="year-month"></div>
+    <a href="javascript:;" class="nav-btn go-next">next</a>
+  </div>
+  <div class="cal_wrap">
+    <div class="days">
+      <div class="day">MON</div>
+      <div class="day">TUE</div>
+      <div class="day">WED</div>
+      <div class="day">THU</div>
+      <div class="day">FRI</div>
+      <div class="day">SAT</div>
+      <div class="day">SUN</div>
+    </div>
+    <div class="dates"></div>
+  </div>
+</section>
+</div>
+  
+  
+
+</body>
+</html>

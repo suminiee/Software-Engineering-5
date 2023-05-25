@@ -1,3 +1,7 @@
+header {
+  z-index: 1;
+  background-color: white;
+}
 header a {
   font-size: 20px;
   font-weight: 700;
@@ -8,7 +12,6 @@ header a {
 header a:hover {
   color: #FE7373;
 }
-
 header .main-menu {
   position: absolute;
   top: 0;
@@ -55,6 +58,7 @@ header .myPage__icon {
 
 /* 마이페이지 */
 .myPage__nav{
+  margin : 0;
   z-index: 10;
   right: 0;
   width: 400px;
