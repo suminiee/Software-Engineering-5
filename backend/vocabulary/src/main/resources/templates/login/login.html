@@ -24,7 +24,7 @@
         <div class="login__card">
         <form action="/login" method="post" th:object="${loginForm}">
           <div th:if="${#fields.hasGlobalErrors()}">
-            <p class="field-error" th:each="err : ${#fields.globalErrors()}"
+            <p class="error-msg" th:class="field-error" th:each="err : ${#fields.globalErrors()}"
                 th:text="${err}">전체 오류 메시지</p>
           </div>
           <input type="text" name="loginId" placeholder="아이디" />
