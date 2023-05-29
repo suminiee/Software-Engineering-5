@@ -1,0 +1,170 @@
+*{padding: 0;
+margin: 0;
+}
+
+body{
+    background-color: #FFF;
+        color: black;
+}
+.container{
+    max-width: 700px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 1.2rem 0;
+    
+}
+header>a{
+    margin: 0px 1400px 0px 0px;
+  
+}
+header>a>i{
+    margin: 0px 0px 0px 3000px;
+    color: black;
+    
+}
+
+
+header>p1 {
+    position: absolute;
+width: 313px;
+height: 47px;
+left: 516px;
+right: 1091px;
+top: 100px;
+bottom: 933px;
+
+color: rgb(141, 141, 141);
+font-family: Inter;
+font-size: 35px;
+font-weight: 700;
+line-height: 58px;
+letter-spacing: 0px;
+text-align: left;
+
+}
+
+hr {
+  width : 250%;
+  border : 100px;
+  border-top: 5px solid #C4C4C4;
+  margin: 60px  0px;
+}
+
+
+
+
+header>ul{
+    display:flex; 
+}
+
+header>ul>li {
+    list-style-type: none;
+    margin-left: 1.5rem;
+   
+}
+
+header>ul>li>a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 800;
+     padding-bottom: 5px;
+    color: black;
+}
+
+header>ul>li:first-child>a {border-bottom: 5px solid gray;
+}
+
+header>ul>li>a:hover {
+    border-bottom: 5px solid gray}
+
+@media screen and (max-width:600px){
+    header{flex-direction: column;
+        
+    }
+}
+#spelling {
+    padding: 0 3rem;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+}
+#mean {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+#wordNum {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#nextButton {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4B89DC;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    #nextButton:hover {
+      background-color: #0089DC;
+    }
+      
+       #previousButton {
+      margin-top: 30px;
+      padding: 10px 5px;
+      font-size: 16px;
+      background-color: #4B89DC;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    #previousButton:hover {
+      background-color: #0089DC;
+    }
+
+#endButton {
+    margin-top: 30px;
+    padding: 10px 5px;
+    font-size: 16px;
+    background-color: #4B89DC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#endButton:hover {
+    background-color: #0089DC;
+}
+
+
+footer {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+footer>a {
+    text-decoration: none;
+}
+
+

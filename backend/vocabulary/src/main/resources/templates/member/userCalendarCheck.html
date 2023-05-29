@@ -7,11 +7,11 @@
   <title>User Calendar Check</title>
   <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="../static/css/common.css">
-  <link rel="stylesheet" href="../static/css/main.css">
-  <link rel="stylesheet" href="../static/css/userCalendarCheck.css">
-  <script defer src="../static/js/userCalendarCheck.js"></script>
-  <script defer src="../static/js/common.js"></script>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/userCalendarCheck.css">
+  <script defer src="/js/userCalendarCheck.js"></script>
+  <script defer src="/js/common.js"></script>
   <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
@@ -22,8 +22,8 @@
   <header>
     <!-- 메인 메뉴바 -->
     <div class="inner">
-      <a href="/" class="logo">
-        <img src="../static/images/상명로고.png" alt="logo">
+      <a href="/main" class="logo">
+        <img src="/images/상명로고.png" alt="logo">
       </a>
 
       <ul class="main-menu">
@@ -57,10 +57,10 @@
 
       <!-- 사용자 레벨 -->
       <div class="userInfo__name">
-        <c:out value="${user.nickname }"/>님의 레벨    
+        <c:out value="${user.nickname}"/>님의 레벨
       </div>
       <div class="userLevel">
-        Lv.<c:out value="${user.level }"/>
+        Lv.<c:out value="${user.level}"/>
       </div>
 
       <!-- 학습 목표 -->
@@ -68,10 +68,10 @@
         오늘의 학습 목표
       </div>
       <div class="userProgress">
-        <c:out value="${user.userProgress }"/>
+        <c:out value="${user.userProgress}"/>
       </div>
       <div class="userGoal">
-        /<c:out value="${user.userGoal }"/>
+        /<c:out value="${user.userGoal}"/>
       </div>
 
     </div>
@@ -85,18 +85,18 @@
       </li>
       <li class="menu">
         <div class="menu__name">
-          <a href="../templates/userCanlendarCheck.html">학습 현황</a>
+          <a href="/userCalendarCheck">학습 현황</a>
         </div>
       </li>
       <li class="menu">
         <div class="menu__name">
-          <a href="../templates/edit.html">학습 목표 및 개인 정보 수정</a>
+          <a href="/edit">학습 목표 및 개인 정보 수정</a>
         </div>
       </li>
     </ul>
 
     <!-- 로그아웃 버튼 -->
-    <div class="logout" onclick="">로그아웃</div>
+    <div class="/logout" onclick="">로그아웃</div>
   </section>
 
 <div class="inner">

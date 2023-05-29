@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +7,9 @@
   <title>Document</title>
   <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="/css/common.css">
-  <link rel="stylesheet" href="/css/login.css">
-  <script defer src="/js/common.js"></script>
+  <link rel="stylesheet" href="../../static/css/common.css">
+  <link rel="stylesheet" href="../../static/css/login.css">
+  <script defer src="../../static/js/common.js"></script>
   <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
@@ -20,7 +19,7 @@
   <div class="inner">
     <section class="login">
       <div class="logo">
-        <a href="/main"><img src="/images/상명로고.png" alt="logo"></a>
+        <img src="../../static/images/상명로고.png" alt="logo">
       </div>
         <div class="login__card">
         <form action="/login" method="post" th:object="${loginForm}">
@@ -35,7 +34,7 @@
             <a href="/signup/1">회원 가입</a>
           </div> 
           <!-- 네이버 로그인 버튼 노출 영역 -->
-          <a href="/login/naver"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
+          <a href="http://localhost:8080/login/naver"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
         </form>
       </div>
     </section>

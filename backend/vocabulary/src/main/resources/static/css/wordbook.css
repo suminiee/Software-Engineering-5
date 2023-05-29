@@ -1,0 +1,339 @@
+.title{
+    position: absolute;
+width: 270px;
+height: 47px;
+left: 516px;
+right: 1091px;
+top: 60px;
+bottom: 933px;
+
+color: rgb(141, 141, 141);
+font-family: Inter;
+font-size: 35px;
+font-weight: 700;
+line-height: 58px;
+letter-spacing: 0px;
+text-align: left;
+}
+
+#editButton {
+      margin-top: 30px;
+      margin-left: 1500px; 
+      padding: 10px 30px;
+      font-size: 16px;
+      background-color: #64CD3C;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    #editButton:hover {
+      background-color: #1E821E;
+    }
+      
+       #addButton {
+      margin-top: 30px;
+      padding: 10px 30px;
+      font-size: 16px;
+      background-color: #4B89DC;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    #addButton:hover {
+      background-color: #0089DC;
+    }
+
+.wordbook_btn{
+    text-align: center;
+}
+#wrong_word_Button {
+     
+      margin-top: 50px;
+      width: 600px;
+      height: 200px;
+      font-size: 50px;
+      background-color: #FFACB7;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    
+   #wrong_word_Button:hover {
+      background-color: #FF4646;
+    }
+#confused_word_Button {
+      margin-top: 50px;
+      margin-left: 100px;
+      width: 600px;
+      height: 200px;
+      font-size: 50px;
+      background-color: #FFACB7;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    
+   #confused_word_Button:hover {
+      background-color: #FF4646;
+    }
+#today_word_Button {
+      margin-top: 50px;
+      width: 600px;
+      height: 200px;
+      font-size: 50px;
+      background-color: #FFACB7;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    
+   #today_word_Button:hover {
+      background-color: #FF4646;
+    }
+
+#RC_Button {
+      margin-top: 50px;
+       margin-left: 100px;
+      width: 600px;
+      height: 200px;
+      font-size: 50px;
+      background-color: #FFACB7;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    
+   #RC_Button:hover {
+      background-color: #FF4646;
+    }
+
+#LC_Button {
+      margin-top: 50px;
+      width: 600px;
+      height: 200px;
+      font-size: 50px;
+      background-color: #FFACB7;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    
+   #LC_Button:hover {
+      background-color: #FF4646;
+    }
+
+
+#date_word_Button {
+      margin-top: 50px;
+      margin-left: 100px;
+      width: 600px;
+      height: 200px;
+      font-size: 50px;
+      background-color: #FFACB7;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    
+   #date_word_Button:hover {
+      background-color: #FF4646;
+    }
+/* 모달 스타일 */
+    .modal {
+      display: none; /* 모달 숨김 */
+      position: fixed; /* 위치 고정 */
+      z-index: 1; /* 다른 요소 위에 표시 */
+      left: 0;
+      top: 0;
+      width: 100%; /* 창 너비 */
+      height: 100%; /* 창 높이 */
+      overflow: auto; /* 스크롤 가능 */
+      background-color: rgba(0, 0, 0, 0.4); /* 배경 어둡게 */
+    }
+    
+    /* 모달 콘텐츠 스타일 */
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto; /* 모달 창 중앙 정렬 */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 12%; /* 콘텐츠 너비 */
+      height: 20%;/* 콘텐츠 높이 */
+    }
+      .modal_title{
+          font-size: 28px;
+          
+      }
+      
+      #addbtn{
+          margin-left: 125px;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          background-color: #4B89DC;
+          color: white;
+          font-size:20px;
+      }
+      
+      #closeBtn {
+      float:right;
+      font-weight: bold;
+      color: #777;
+      font-size:60px;
+      cursor: pointer;
+        margin-top: -30px;
+       }
+
+#deleteButton {
+      margin-top: 30px;
+      margin-left: 1500px; 
+      padding: 10px 30px;
+      font-size: 16px;
+      background-color: #FFA5F0;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    #deleteButton:hover {
+      background-color: #FF50CF;
+    }
+      
+       #finishButton {
+      margin-top: 30px;
+      padding: 10px 30px;
+      font-size: 16px;
+      background-color: #FFDC46;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    #finishButton:hover {
+      background-color: #0089DC;
+    }
+
+
+#edit_wrong_word_Button {
+            background-color: gray;
+            color: white;
+            margin-top: 50px;
+            width: 600px;
+            height: 200px;
+            font-size: 50px;
+            border: none;
+            border-radius: 20px;
+            cursor: not-allowed;
+        }
+
+#edit_wrong_word_Button.enabled {
+            background-color: green;
+            cursor: pointer;
+        }
+
+#edit_confused_word_Button {
+            background-color: gray;
+            color: white;
+            margin-top: 50px;
+            width: 600px;
+            height: 200px;
+            font-size: 50px;
+            border: none;
+            border-radius: 20px;
+            cursor: not-allowed;
+        }
+
+#edit_confused_word_Button.enabled {
+            background-color: green;
+            cursor: pointer;
+        }
+
+
+#edit_today_word_Button {
+            background-color: gray;
+            color: white;
+            margin-top: 50px;
+            width: 600px;
+            height: 200px;
+            font-size: 50px;
+            border: none;
+            border-radius: 20px;
+            cursor: not-allowed;
+        }
+
+#edit_today_word_Button.enabled {
+            background-color: green;
+            cursor: pointer;
+        }
+
+#edit_RC_Button {
+            background-color: gray;
+            color: white;
+            margin-top: 50px;
+            width: 600px;
+            height: 200px;
+            font-size: 50px;
+            border: none;
+            border-radius: 20px;
+            cursor: not-allowed;
+        }
+
+#edit_RC_Button.enabled {
+            background-color: green;
+            cursor: pointer;
+        }
+
+#edit_LC_Button {
+            background-color: gray;
+            color: white;
+            margin-top: 50px;
+            width: 600px;
+            height: 200px;
+            font-size: 50px;
+            border: none;
+            border-radius: 20px;
+            cursor: not-allowed;
+        }
+
+#edit_LC_Button.enabled {
+            background-color: green;
+            cursor: pointer;
+        }
+
+#edit_date_word_Button {
+            background-color: gray;
+            color: white;
+            margin-top: 50px;
+            width: 600px;
+            height: 200px;
+            font-size: 50px;
+            border: none;
+            border-radius: 20px;
+            cursor: not-allowed;
+        }
+
+#edit_date_word_Button.enabled {
+            background-color: green;
+            cursor: pointer;
+        }
+
+input[type="checkbox"]{
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        border:3px solid #707070;
+        position: relative;
+        
+      }
