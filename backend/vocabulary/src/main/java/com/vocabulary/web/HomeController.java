@@ -5,13 +5,14 @@ import com.vocabulary.domain.member.service.MemberService;
 import com.vocabulary.domain.study.service.StudyService;
 import com.vocabulary.web.login.argumentresolver.Login;
 import com.vocabulary.web.login.session.MemberSessionDto;
-import com.vocabulary.web.login.session.SessionConst;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
+
+import java.sql.Date;
+import java.time.LocalDate;
 
 @Slf4j
 @Controller
@@ -24,18 +25,18 @@ public class HomeController {
     @GetMapping("/main")
     public String home(@Login MemberSessionDto loginMember, Model model) {
         if (loginMember == null) {
-            return "main";
+            return "main/mainVisitor";
         }
 
         if (loginMember.getRole() == true) {
-            return "redirect:/words";
+            return "redirect:/word/words";
         }
 
         MemberInfoDto info = memberService.getInfo(loginMember.getId());
-//        Integer count = stu
-//        model.addAttribute("info", info);
-//        model.addAttribute("count", count);
-
-        return "main";
+        LocalDate localDate = LocalDate.now();
+        Integer count = studyService.getStudiedCount(Date.valueOf(localDate), loginMember.getId());
+        model.addAttribute("memberInfoDto", info);
+        model.addAttribute("count", count);
+        return "main/mainMember";
     }
 }

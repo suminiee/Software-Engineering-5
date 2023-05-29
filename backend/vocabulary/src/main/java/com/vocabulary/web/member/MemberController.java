@@ -1,6 +1,5 @@
 package com.vocabulary.web.member;
 
-import com.vocabulary.domain.login.LoginService;
 import com.vocabulary.domain.member.domain.Member;
 import com.vocabulary.domain.member.service.MemberService;
 import com.vocabulary.web.login.argumentresolver.Login;
@@ -73,16 +72,39 @@ public class MemberController {
     }
 
     @GetMapping("/edit")
-    public String editForm(@Login MemberSessionDto loginMember) {
-        return "editForm";
+    public String editForm(@Login MemberSessionDto loginMember, @ModelAttribute("memberUpdateForm") MemberUpdateForm form) {
+        if (loginMember.getSocial()) {
+            return "redirect:/socialEdit";
+        }
+        return "member/edit";
     }
 
     @PostMapping("/edit")
     public String edit(@Login MemberSessionDto loginMember, @Validated @ModelAttribute MemberUpdateForm form, BindingResult bindingResult) {
+        if (form.getPassword() != null && form.getPassCheck() != null) {
+            if (!form.getPassword().equals(form.getPassCheck())) {
+                bindingResult.addError(new FieldError("memberUpdateForm", "passCheck", "비밀번호가 일치하지 않습니다."));
+            }
+        }
         if (bindingResult.hasErrors()) {
-            return "editForm";
+            return "member/edit";
         }
         memberService.update(loginMember.getId(), form);
-        return "redirect:/home";
+        return "redirect:/main";
+    }
+
+    @GetMapping("/socialEdit")
+    public String socialEditForm(@Login MemberSessionDto loginMember, @ModelAttribute("socialMemberUpdateForm") SocialMemberUpdateForm form) {
+        return "member/socialEdit";
+    }
+
+    @PostMapping("/socialEdit")
+    public String socialEdit(@Login MemberSessionDto loginMember, @Validated @ModelAttribute("socialMemberUpdateForm") SocialMemberUpdateForm form,
+                             BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "member/socialEdit";
+        }
+        memberService.update(loginMember.getId(), form.getNickname(), form.getDailyWord());
+        return "redirect:/main";
     }
 }

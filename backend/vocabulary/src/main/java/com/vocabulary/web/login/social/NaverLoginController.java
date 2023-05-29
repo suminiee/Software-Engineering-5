@@ -79,6 +79,7 @@ public class NaverLoginController {
         MemberSessionDto sessionDto = new MemberSessionDto();
         sessionDto.setId(loginMember.getId());
         sessionDto.setRole(loginMember.getRole());
+        sessionDto.setSocial(loginMember.getSocial());
 
         session.setAttribute(SessionConst.LOGIN_MEMBER, sessionDto);
         return "redirect:/main";

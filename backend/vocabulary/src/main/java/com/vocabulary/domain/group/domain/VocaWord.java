@@ -5,17 +5,11 @@ import lombok.Data;
 
 @Data
 @Entity
-public class GroupWord {
+public class VocaWord {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer groupWordId;
 
-    @ManyToOne
-    @JoinColumn(name = "groupId")
-    private Group groupId;
-
+    private Integer groupId;
     private Integer wordId;
-
-    public GroupWord() {
-    }
 }

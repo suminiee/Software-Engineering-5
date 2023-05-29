@@ -12,7 +12,7 @@ public class MemberBuilder {
         member.setNickname(form.getNickname());
         member.setDailyWord(form.getDailyWord());
 
-        member.setLevel(-1);
+        member.setLevel(0);
         member.setRole(false);
 
         member.setSocial(social);

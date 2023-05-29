@@ -35,9 +35,24 @@ public class MemberForm {
         @Pattern(regexp = "(?=.*[0-9])(?=.*[a-z]).{5,15}", message = "알파벳 소문자와 숫자를 포함하여야 합니다.")
         @Pattern(regexp = ".{5,15}", message = "5-15자 이내여야 합니다.")
         private String password;
-        @Size(min = 1, max = 15, message = "5-15자 이내여야 합니다.")
+
+        @NotNull(message = "비밀번호가 일치하지 않습니다.")
+        private String passCheck;
+
         @Pattern(regexp = "(?=.*[0-9])(?=.*[a-z]).{5,15}", message = "알파벳 소문자와 숫자를 포함하여야 합니다.")
+        @Pattern(regexp = ".{5,15}", message = "5-15자 이내여야 합니다.")
         private String nickname;
+
+        @Min(value = 10) @Max(value = 100)
+        private Integer dailyWord;
+    }
+
+    @Data
+    public class SocialMemberUpdateForm {
+        @Pattern(regexp = "(?=.*[0-9])(?=.*[a-z]).{5,15}", message = "알파벳 소문자와 숫자를 포함하여야 합니다.")
+        @Pattern(regexp = ".{5,15}", message = "5-15자 이내여야 합니다.")
+        private String nickname;
+
         @Min(value = 10) @Max(value = 100)
         private Integer dailyWord;
     }
