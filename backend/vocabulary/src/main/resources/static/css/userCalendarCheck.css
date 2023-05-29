@@ -92,6 +92,7 @@
 }
 
 .current.today {background: rgb(242 242 242);}
+.current.checked {background: rgb(0, 253, 4);}
 
 .sec_cal .cal_wrap .dates {
   display: flex;

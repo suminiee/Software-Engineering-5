@@ -21,7 +21,7 @@
 
 
        <div class="wordbook_btn" style="display:inline;" th:each="info : ${groups}">
-            <span><button id="confused_word_Button" th:name="*{info.groupId}" th:text="*{info.groupName}" th:onclick="*{info.groupId}">단어장</button></span>
+            <span><button id="confused_word_Button" th:name="*{info.groupId}" th:text="*{info.groupName}" th:onclick="|location.href='@{/group(groupId=${info.groupId})}'|">단어장</button></span>
             <span th:if="${infoStat.even}"></br></span>
        </div>
 
