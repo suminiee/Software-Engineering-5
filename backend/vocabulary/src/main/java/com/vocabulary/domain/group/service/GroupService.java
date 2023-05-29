@@ -1,45 +1,55 @@
 package com.vocabulary.domain.group.service;
 
-import com.vocabulary.domain.group.domain.Group;
-import com.vocabulary.domain.group.domain.GroupWord;
-import com.vocabulary.domain.group.dto.GroupInfoDto;
-import com.vocabulary.domain.group.repository.GroupRepository;
-import com.vocabulary.domain.group.repository.GroupWordRepository;
+import com.vocabulary.domain.group.domain.Voca;
+import com.vocabulary.domain.group.domain.VocaWord;
+import com.vocabulary.domain.group.repository.VocaRepository;
+import com.vocabulary.domain.group.repository.VocaWordRepository;
+import com.vocabulary.domain.word.domain.Word;
+import com.vocabulary.domain.word.repository.WordRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 @Transactional
 @RequiredArgsConstructor
 public class GroupService {
 
-    private final GroupRepository groupRepository;
-    private final GroupWordRepository groupWordRepository;
+    private final VocaRepository vocaRepository;
+    private final VocaWordRepository vocaWordRepository;
+    private final WordRepository wordRepository;
 
-    public List<GroupInfoDto> getGroup(Integer id) {
-        return groupRepository.getGroups(id);
+    public List<Voca> getGroup(Integer id) {
+        return vocaRepository.getGroup(id);
     }
 
-    public void saveGroup(Group group) {
-        groupRepository.save(group);
+    public void saveGroup(Voca group) {
+        vocaRepository.save(group);
     }
 
-    public void deleteGroup(Group group) {
-        groupRepository.delete(group);
+    public void deleteGroup(Voca group) {
+        vocaRepository.delete(group);
     }
 
-    public void getGroupWords(Integer groupId) {
-        groupWordRepository.getWords(groupId);
+    public List<Word> getGroupWords(Integer groupId) {
+        List<Integer> wordIds = vocaWordRepository.getWords(groupId);
+        List<Word> words = new ArrayList<>();
+        for (Integer wordId : wordIds) {
+            words.add(wordRepository.findById(wordId).orElse(null));
+        }
+        return words;
     }
 
-    public void saveWord(GroupWord word) {
-        groupWordRepository.save(word);
+    public void saveWord(VocaWord word) {
+        vocaWordRepository.save(word);
     }
 
-    public void deleteWord(GroupWord word) {
-        groupWordRepository.delete(word);
+    public void deleteWord(VocaWord word) {
+        vocaWordRepository.delete(word);
     }
 }
