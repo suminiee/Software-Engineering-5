@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+   
+    <meta charset="utf-8">
+    <title>wordbook</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/wordbook.css">
+  </head>
+
+  <body>
+      <div class ="icon">
+        <a href="/main"><img src="../../static/images/상명로고.png" alt="Icon" , width="400"></a>
+      </div>
+      <div class ="title">단어장</div>
+       
+       <span><button id="editButton" onclick="location.href = 'groupEdit'">편집</button>
+           <button id="addButton" onclick="openModal()">추가</button></span>
+
+       <hr style="border:3px solid #8d8d8d;"/>
+
+
+       <div class="wordbook_btn" style="display:inline;" th:each="info : ${groups}">
+            <span><button id="confused_word_Button" th:name="*{info.groupId}" th:text="*{info.groupName}" th:onclick="|location.href='@{/group(groupId=${info.groupId})}'|">단어장</button></span>
+            <span th:if="${infoStat.even}"></br></span>
+       </div>
+
+    <!-- 모달 -->
+  <div id="myModal" class="modal">
+    <!-- 모달 콘텐츠 -->
+    <div class="modal-content">
+        <form action="" method="post">
+        <span id="closeBtn" onclick="closeModal()" style="float: right; cursor: pointer;">&times;</span>
+        <p1 class = "modal_title">그룹 추가하기</p1>
+        <br>
+        <br>
+        <br>
+        <p2>그룹명 입력</p2>
+        <input type="text" id="wordId" name="groupName">
+        <br><br>
+        <button type="submit" id="addbtn">추가</button>
+        </form>
+    </div>
+  </div>
+    
+    <script >
+        // 모달 열기
+    function openModal() {
+      document.getElementById("myModal").style.display = "block";
+    }
+    
+    // 모달 닫기
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+    </script>
+  </body>
+</html>

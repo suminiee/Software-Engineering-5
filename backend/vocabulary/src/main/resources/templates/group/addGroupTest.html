@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>addGroup</title>
+    <style>
+      * {
+        font-family: Consolas, sans-serif;
+      }
+        h1{
+            text-align: center;
+            background: #4B89DC
+                
+        }
+      input[type="checkbox"]{
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border:3px solid #707070;
+        position: relative;
+        
+      }
+        input[id="favorite"] + label{
+        font-size: 25px;
+        text-align: center;
+      }
+        input[id="confused"] + label{
+        font-size: 25px;
+        text-align: center;
+      }
+        input[id="RC"] + label{
+        font-size: 25px;
+        text-align: center;
+      }
+        button{
+            font-size: 25px;
+            margin-top: 30px;
+          padding: 10px 30px;
+          font-size: 30px;
+          background-color: #4B89DC;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+           
+        }
+        button:hover {
+      background-color: #0089DC;
+    }
+        button>a{
+            text-align: center;
+            text-decoration: none;
+            color: white;
+        }
+      /* 모달 스타일 */
+      .modal {
+          display: none; /* 모달 숨김 */
+          position: fixed; /* 위치 고정 */
+          z-index: 1; /* 다른 요소 위에 표시 */
+          left: 0;
+          top: 0;
+          width: 200%; /* 창 너비 */
+          height: 200%; /* 창 높이 */
+          overflow: auto; /* 스크롤 가능 */
+          background-color: rgba(0, 0, 0, 0.4); /* 배경 어둡게 */
+      }
+
+      /* 모달 콘텐츠 스타일 */
+      .modal-content {
+          background-color: #fefefe;
+          margin: 10%; /* 모달 창 중앙 정렬 */
+          padding: 20px;
+          border: 1px solid #888;
+          width: 25%; /* 콘텐츠 너비 */
+          height: 20%;/* 콘텐츠 높이 */
+      }
+      .title{
+          font-size: 30px;
+
+      }
+
+      #addbtn{
+          margin-left: 125px;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          background-color: #4B89DC;
+          color: white;
+          font-size:20px;
+      }
+
+      #closeBtn {
+          float:right;
+          font-weight: bold;
+          color: #777;
+          font-size:60px;
+          cursor: pointer;
+          margin-top: -30px;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <h1>그룹에 추가하기</h1>
+
+    <form id="add" method="post">
+        <div th:each="info : ${groups}">
+            <input type="checkbox" id="favorite" name="groupId" th:value="*{info.groupId}"><label for="favorite" th:text="*{info.groupName}">즐겨찾기</label>
+        </div>
+    </form>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    <div>
+        <span><button id="add_new_word" form="add" action="" onclick="success();">그룹에 추가하기</button><button onclick="openModal()">새로운 그룹 추가</button></span>
+    </div>
+
+    <div id="myModal" class="modal">
+        <!-- 모달 콘텐츠 -->
+        <div class="modal-content">
+            <span id="closeBtn" onclick="closeModal()" style="float: right; cursor: pointer;">&times;</span>
+            <p1 class = "title">그룹 추가하기</p1>
+            <br>
+            <br>
+            <br>
+            <p2>그룹명 입력</p2>
+            <form id="name" action="/addGroup/1" method="post">
+                <input type="text" id="groupName" name="groupName">
+                <br><br>
+                <input id="addbtn" type="submit">
+            </form>
+        </div>
+    </div>
+
+
+  </body>
+
+  <script>
+      function success() {
+          alert("추가완료");
+      }
+
+      // 모달 열기
+      function openModal() {
+          document.getElementById("myModal").style.display = "block";
+      }
+
+      // 모달 닫기
+      function closeModal() {
+          document.getElementById("myModal").style.display = "none";
+      }
+  </script>
+
+
+</html>
