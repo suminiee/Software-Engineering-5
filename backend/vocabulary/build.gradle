@@ -36,6 +36,9 @@ dependencies {
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	//Json Parser 추가
 	implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+	//Thymeleaf 추가
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
 
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

@@ -6,7 +6,6 @@ import com.vocabulary.domain.word.domain.Word;
 import com.vocabulary.domain.word.dto.WordSearchCond;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;

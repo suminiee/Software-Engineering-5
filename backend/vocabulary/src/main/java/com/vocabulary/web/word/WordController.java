@@ -9,15 +9,15 @@ import com.vocabulary.web.login.session.MemberSessionDto;
 import com.vocabulary.web.login.argumentresolver.Login;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 
 @Slf4j
-@RestController
 @RequiredArgsConstructor
-@RequestMapping("/words")
+@Controller
 public class WordController {
 
     private final WordService wordService;
@@ -25,13 +25,13 @@ public class WordController {
     /**
      * 단어 목록 전체 출력
      */
-    @GetMapping()
+    @GetMapping("/words")
     public String words(@Login MemberSessionDto loginMember, Model model) {
         if ((loginMember == null) || !loginMember.getRole()) {
-            return "redirect:/home";
+            return "redirect:/main";
         }
-        model.addAttribute("wordList", wordService.findAll());
-        return "words";
+        model.addAttribute("words", wordService.findAll());
+        return "word/wordsV1";
     }
 
     /**
@@ -39,8 +39,8 @@ public class WordController {
      */
     @GetMapping("/cond")
     public String condWords(@ModelAttribute WordSearchCond cond, Model model) {
-        model.addAttribute("wordList", wordService.findAllByCond(cond));
-        return "words";
+        model.addAttribute("words", wordService.findAllByCond(cond));
+        return "word/wordsV1";
     }
 
     /**
