@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../../static/css/learningPage.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/common.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="container">
         <header>
-            <a href="/main"><img src="../../static/images/상명로고.png" alt="Icon" , width="400"></a>
+            <!-- <a href="/main"><img src="../../static/images/상명로고.png" alt="Icon" , width="400"></a>
             <p1>단어 학습</p1>
             <ul>
                 <li>
@@ -21,10 +24,17 @@
                 <li>
                     <a href="/groups">나의 단어장</a>
                 </li>
-            </ul>
-
-            <hr/>
-              <a input type="button" onclick="new_window();"><i class="fa-sharp fa-regular fa-plus fa-4x"></i></a>
+            </ul> -->
+                <div class="inner">
+                    <a href="/main" class="logo">
+                        <img src="../../static/images/상명로고.png" alt="logo">
+                    </a>
+                    <div class="page__name">단어 학습</div>
+                    <a input type="button" onclick="new_window();">
+                        <i class="material-icons">playlist_add</i>
+                    </a>
+                </div>
+                
         </header>
 
         <section>
@@ -107,7 +117,7 @@
 
         window.location.href=url;
     }
-      
-  </script>
+        
+    </script>
 </body>
 </html>
