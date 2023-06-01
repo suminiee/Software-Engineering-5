@@ -12,6 +12,7 @@ import com.vocabulary.domain.word.domain.Word;
 import com.vocabulary.web.login.argumentresolver.Login;
 import com.vocabulary.web.login.session.MemberSessionDto;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.*;
@@ -69,10 +72,19 @@ public class TestController {
      * 데일리 테스트
      */
     @GetMapping("/dailyTest")
-    public String dailyTestForm(@Login MemberSessionDto loginMember, Model model) {
+    public String dailyTestForm(@Login MemberSessionDto loginMember, Model model, HttpServletResponse response) {
         LocalDate localDate = LocalDate.now();
         // 데일리 테스트 조건 확인
         if (loginMember == null || memberService.getInfo(loginMember.getId()).getDailyWord() > studyService.getStudiedCount(Date.valueOf(localDate), loginMember.getId())) {
+            response.setContentType("text/html; charset=UTF-8");
+            PrintWriter out = null;
+            try {
+                out = response.getWriter();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            out.println("<script>alert('데일리 학습을 완료하세요.'); history.go(-1);</script>");
+            out.flush();
             return "redirect:/main";
         }
         List<AnswerForm> dailyWords = testService.getDailyWords(Date.valueOf(localDate), loginMember.getId());
@@ -111,10 +123,19 @@ public class TestController {
      * 월말 테스트
      */
     @GetMapping("/monthlyTest")
-    public String monthlyTestForm(@Login MemberSessionDto loginMember, Model model){
+    public String monthlyTestForm(@Login MemberSessionDto loginMember, HttpServletResponse response, Model model) {
         LocalDate localDate = LocalDate.now();
         List<AnswerForm> monthlyWords = testService.getMonthlyWords(loginMember.getId(), localDate.getMonthValue());
-        if (monthlyWords == null) {
+        if (monthlyWords.size() == 0) {
+            response.setContentType("text/html; charset=UTF-8");
+            PrintWriter out = null;
+            try {
+                out = response.getWriter();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            out.println("<script>alert('테스트 할 수 있는 단어가 없음.'); history.go(-1);</script>");
+            out.flush();
             return "redirect:/main";
         }
         model.addAttribute("testName", "월말 테스트");
@@ -129,7 +150,7 @@ public class TestController {
         List<Integer> error = testService.checkAnswer(wordIds);
         int result = (wordIds.length/2) - error.size();
         resultAttribute("월말 테스트", result, wordIds.length / 2, time, model);
-        return "redirect:/result";
+        return "test/testResult";
     }
 
     @GetMapping("/monthlyTest/timeout")
