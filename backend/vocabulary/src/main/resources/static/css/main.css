@@ -129,3 +129,11 @@ header .myPage__icon {
 .myPage__nav .logout:hover {
   color: #FE7373;
 }
+/* 배너 */
+.banner {
+  margin-top: 120px;
+  background-image: url("../images/fCCBkncznzBZszbSgGKg.jpg");
+  background-position: center;
+  height: 646px;
+
+}
