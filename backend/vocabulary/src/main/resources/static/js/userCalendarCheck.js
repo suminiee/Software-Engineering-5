@@ -74,7 +74,15 @@ function calendarInit() {
       if (today.getMonth() == currentMonth) {
           todayDate = today.getDate();
           var currentMonthDate = document.querySelectorAll('.dates .current');
-          currentMonthDate[todayDate -1].classList.add('today');
+          currentMonthDate[todayDate - 1].classList.add('today');
+      }
+
+      for (var i = 0; i < attendance.length; i++) {
+          var checkDate = new Date(attendance[i]);
+          if ((checkDate.getMonth()) == currentMonth) {
+              var currentMonthDate = document.querySelectorAll('.dates .current');
+              currentMonthDate[checkDate.getDate() - 1].classList.add('checked');
+          }
       }
   }
 

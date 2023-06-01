@@ -29,17 +29,17 @@
       <ul class="main-menu">
         <li class="menu">
           <div class="menu__name">
-            <a href="" onclick="voca()">단어 학습</a>
+            <a href="/study" onclick="voca()">단어 학습</a>
           </div>
         </li>
         <li class="menu">
           <div class="menu__name">
-            <a href="" onclick="test()">데일리 테스트</a>
+            <a href="/dailyTest" onclick="test()">데일리 테스트</a>
           </div>
         </li>
         <li class="menu">
           <div class="menu__name">
-            <a href="" onclick="group()">나의 단어장</a>
+            <a href="/groups" onclick="group()">나의 단어장</a>
           </div>
         </li>
       </ul>
@@ -53,25 +53,26 @@
   <!-- 마이페이지 -->
   <section class="myPage__nav">
     <i class="material-icons close" id="close-button">close</i>
-    <div class="userInfo">
+    <div class="userInfo" th:object="${memberInfoDto}">
 
       <!-- 사용자 레벨 -->
       <div class="userInfo__name">
-        <c:out value="${user.nickname}"/>님의 레벨
+        <span th:text="${memberInfoDto.nickname}"/></span>
+        <span> 님의 레벨</span>
       </div>
       <div class="userLevel">
-        Lv.<c:out value="${user.level}"/>
+        <span>Lv. </span>
+        <span th:text="${memberInfoDto.level}"></span>
       </div>
 
       <!-- 학습 목표 -->
       <div class="userInfo__name">
         오늘의 학습 목표
       </div>
-      <div class="userProgress">
-        <c:out value="${user.userProgress}"/>
-      </div>
       <div class="userGoal">
-        /<c:out value="${user.userGoal}"/>
+        <span th:text="${count}"></span>
+        <span> / </span>
+        <span th:text="${memberInfoDto.dailyWord}"></span>
       </div>
 
     </div>
@@ -80,7 +81,7 @@
     <ul class="myPage">
       <li class="myPage__menu">
         <div class="menu__name">
-          <a href="">레벨 테스트 진행하기</a>
+          <a href="/levelTest">레벨 테스트 진행하기</a>
         </div>
       </li>
       <li class="menu">
@@ -96,7 +97,7 @@
     </ul>
 
     <!-- 로그아웃 버튼 -->
-    <div class="/logout" onclick="">로그아웃</div>
+    <div class="/logout" onclick=""><a href="logout">로그아웃</a></div>
   </section>
 
 <div class="inner">
@@ -121,8 +122,8 @@
   </div>
 </section>
 </div>
-  
-  
-
 </body>
+<script th:inline="javascript">
+  var attendance = [[${attendance}]];
+</script>
 </html>

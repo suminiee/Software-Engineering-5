@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>admin_edit_page</title>
+        <link rel="stylesheet" type="text/css" href="/css/adminpage.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <div class ="title">관리자 페이지</div>
+        <span><form><input class="text_box" type="text" placeholder="단어 또는 뜻 입력" name="searchCond" autofocus size="25">
+            <button type="submit" method="post" class="fa-solid fa-magnifying-glass" action="/wordEdit/cond"></button></form></span>
+        <span><button form="delete" class="deleteButton" onclick="alert('단어가 삭제되었습니다.')">삭제</button><button  class="finishButton" onclick="location.href = 'words'" >완료</button></span>
+        <br>
+         <br>
+          <br>
+          <br>
+          <br>
+          <br>
+
+        <form id="delete" method="post" action="wordEdit/1">
+
+        <hr style="border:3px solid #8d8d8d;"/>
+        <div th:each="word : ${words}">
+            <input type="checkbox" name="wordId" th:value="*{word.wordId}"><div class="word" th:text="*{word.spelling}">spelling</div><div class="meaning" th:text="*{word.mean}">mean</div><button type="button" class="word_edit_btn" th:onclick=|openModal(*{word.wordId})|>편집</button>
+            <hr style="border:1px solid #8d8d8d;"/>
+        </div>
+        </form>
+
+        <div th:each="word : ${words}">
+            <div th:id="myModal+*{word.wordId}" class="modal">
+                <!-- 모달 콘텐츠 -->
+                <div class="modal-content">
+                    <span id="closeBtn" style="float: right; cursor: pointer;" th:onclick=|closeModal(*{word.wordId})|>&times;</span>
+                    <p1 class = "modal_title">단어 수정하기</p1>
+                    <br>
+                    <br>
+                    <br>
+                    <form th:id="edit+*{word.wordId}" action="/wordEdit" method="post">
+                        <input type="hidden" id="wordId" name="wordId" th:value="*{word.wordId}">
+                        <input type="text" id="spelling" size="28" name="spelling" th:value="*{word.spelling}" autofocus>
+                    </form>
+                    <textarea th:form="edit+*{word.wordId}" id="mean" cols="30" rows="10" th:value="*{word.mean}" name="mean" autofocus></textarea>
+                    <br><br>
+                    <button type="submit" th:form="edit+*{word.wordId}" onclick="alert('단어가 수정되었습니다.')">수정</button>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script th:inline="javascript">
+        // 모달 열기
+        function openModal(wordId) {
+          document.getElementById("myModal"+wordId).style.display = "block";
+        }
+
+        // 모달 닫기
+        function closeModal(wordId) {
+          document.getElementById("myModal"+wordId).style.display = "none";
+        }
+  </script>
+</html>
+

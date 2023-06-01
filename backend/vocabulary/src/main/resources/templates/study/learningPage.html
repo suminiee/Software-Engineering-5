@@ -7,39 +7,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="/main"><img src="/images/상명로고.png" alt="Icon" , width="400"></a>
-            <p1>단어 학습</p1>
-            <ul>
-                <li>
-                    <a href="/study">단어 학습</a>
-                </li>
-                <li>
-                    <a href="/dailyTest">데일리 테스트</a>
-                </li>
-                <li>
-                    <a href="/groups">나의 단어장</a>
-                </li>
-            </ul>
+<div class="container">
+    <header>
+        <a><img src="/images/상명로고.png" alt="Icon" onclick="end_check()" , width="400"></a>
+        <p1>단어 학습</p1>
+        <ul>
+            <li>
+                <a href="/study">단어 학습</a>
+            </li>
+            <li>
+                <a href="/dailyTest">데일리 테스트</a>
+            </li>
+            <li>
+                <a href="/groups">나의 단어장</a>
+            </li>
+        </ul>
 
-            <hr/>
-              <a input type="button" onclick="new_window();"><i class="fa-sharp fa-regular fa-plus fa-4x"></i></a>
-        </header>
+        <hr/>
+        <a input type="button" onclick="new_window();"><i class="fa-sharp fa-regular fa-plus fa-4x"></i></a>
+    </header>
 
-        <section>
-            <div id="wordId"></div>
-            <div id="spelling"></div>
-            <div id="mean"></div>
-            <div id="wordNum"></div>
-        </section>
+    <section>
+        <div id="wordId"></div>
+        <div id="spelling"></div>
+        <div id="mean"></div>
+        <div id="wordNum"></div>
+    </section>
 
-        <span><button id="previousButton">Previous</button>
+    <span><button id="previousButton">Previous</button>
         <button id="nextButton">Next</button></span>
-        <button id="endButton">학습 종료</button>
-    </div>
+    <button id="endButton" onclick="alert('학습을 완료하였습니다')">학습 종료</button>
+</div>
 
-    <script th:inline="javascript">
+<script th:inline="javascript">
     // Add event listener to the nextButton
     document.getElementById("nextButton").addEventListener("click", loadNextWord);
     document.getElementById("previousButton").addEventListener("click", loadPreviousWord);
@@ -59,12 +59,12 @@
     //미니 팝업창
     function new_window() {
         window.open(
-          `/addGroup?wordId=` + word[currentWordIndex].wordId,
-          "addGroup",
-          "width=600, height=500, top=50, left=50"
+            `/addGroup?wordId=` + word[currentWordIndex].wordId,
+            "addGroup",
+            "width=600, height=500, top=50, left=50"
         );
-      }
-        
+    }
+
     function loadNextWord() {
         if (currentWordIndex >= word.length - 1) {
             alert("모든 단어를 학습하셨습니다.");
@@ -107,7 +107,19 @@
 
         window.location.href=url;
     }
-      
-  </script>
+
+    function end_check() {
+        var answer;
+        answer = confirm("진행사항을 저장하고 이동합니다.");
+        if (answer == true) {
+            var url = new URL("http://localhost:8080/studyEnd");
+            for (var idx = 0; idx < currentWordIndex + 1; idx++) {
+                url.searchParams.append('wordId', word[idx].wordId);
+            }
+            location = url;
+        }
+    }
+
+</script>
 </body>
 </html>

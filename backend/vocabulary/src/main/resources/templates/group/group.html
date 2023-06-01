@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>wordbook_insidepage</title>
+        <link rel="stylesheet" type="text/css" href="/css/wordbook_insidepage.css">
+    </head>
+    <body>
+        <div class ="icon">
+            <a href="/main"><img src="/images/상명로고.png" alt="Icon" , width="400"></a>
+       </div>
+        <div class ="title">단어장</div>
+
+        <span><div class="title2" th:text="|단어장>[${groupName}]|"></div><button  class="editButton" onclick="location.href='/groupWordEdit';" >편집</button></span>
+       <hr style="border:3px solid #8d8d8d;"/>
+
+
+        <div th:each="word : ${words}">
+            <div class="word" th:text="*{word.spelling}">spelling</div><div class="meaning" th:text="*{word.mean}">mean</div>
+            <hr style="border:1px solid #8d8d8d;"/>
+        </div>
+    </body>
+</html>

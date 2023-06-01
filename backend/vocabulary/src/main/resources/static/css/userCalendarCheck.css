@@ -92,7 +92,9 @@
 }
 
 .current.today {background: rgb(242 242 242);}
-.current.checked {background: rgb(0, 253, 4);}
+.current.checked {
+  background-image: url('../images/check.PNG');
+}
 
 .sec_cal .cal_wrap .dates {
   display: flex;

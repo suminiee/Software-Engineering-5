@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>wordtest_page</title>
+        <link rel="stylesheet" type="text/css" href="/css/wordtest_page.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="/js/jquery-3.7.0.min.js"></script>
+    </head>
+    <body>
+        <div class ="icon">
+            <a href="/main"><img src="/images/상명로고.png" alt="Icon" , width="400"></a>
+        </div>
+        <span><div class ="title" th:text="*{testName}"></div></span>
+        <hr style="border:3px solid #8d8d8d;"/>
+        <i class="fa-regular fa-clock"><div id="timer"></div></i>
+
+            <div th:each="word : ${words}">
+                <center><div class="question">
+                        <h3 th:text="|${wordStat.count}.*{word.question.spelling}|">1.impressive</h3>
+                        <div class="choice">
+                          <input type="radio" th:id="choice1" th:name="*{word.question.wordId}" th:value="*{word.answer1.wordId}">
+                          <label th:text="*{word.answer1.mean}">인상적인</label>
+                        </div>
+
+                        <div class="choice">
+                          <input type="radio" th:id="choice2" th:name="*{word.question.wordId}" th:value="*{word.answer2.wordId}">
+                          <label th:text="*{word.answer2.mean}">옮기다</label>
+                        </div>
+                        <br>
+                        <div class="choice">
+                          <input type="radio" th:id="choice3" th:name="*{word.question.wordId}" th:value="*{word.answer3.wordId}">
+                          <label th:text="*{word.answer3.mean}">조심하다</label>
+                        </div>
+
+                        <div class="choice">
+                          <input type="radio" th:id="choice4" th:name="*{word.question.wordId}" th:value="*{word.answer4.wordId}">
+                          <label th:text="*{word.answer4.mean}">건강</label>
+                        </div>
+                </div>
+                </center>
+            </div>
+
+        </center>
+        <br><br><br><br>
+        <center><button id="submit_btn" onclick="test()">제출하기</button></center>
+    </body>
+
+    <script>
+        var time = 600; //기준시간 작성
+        var min = ""; //분
+        var sec = ""; //초
+
+        //setInterval(함수, 시간) : 주기적인 실행
+        var x = setInterval(function() {
+            //parseInt() : 정수를 반환
+            min = parseInt(time/60); //몫을 계산
+            sec = time%60; //나머지를 계산
+
+            document.getElementById("timer").innerHTML = min + ":" + sec;
+            time--;
+
+            //타임아웃 시
+            if (time < 0) {
+                clearInterval(x); //setInterval() 실행을 끝냄
+                document.getElementById("timer").innerHTML = "시간초과";
+                alert('시간초과')
+                location = window.location.href+"/timeout";
+            }
+        }, 1000);
+
+
+        var paramUrlType = [];
+
+        function test() {
+            $("input[type=radio]:checked").each( function() {
+                paramUrlType.push(this.name)
+                paramUrlType.push(this.value);
+            });
+            var url = new URL(window.location.href+"/result");
+            for (var i = 0; i < paramUrlType.length; i++) {
+                url.searchParams.append('answer', paramUrlType[i]);
+            }
+            time = 600-time;
+            min = parseInt(time/60);
+            sec = time%60;
+            url.searchParams.append('time', min + ":" + sec);
+            window.location.href=url;
+        }
+
+    </script>
+</html>
