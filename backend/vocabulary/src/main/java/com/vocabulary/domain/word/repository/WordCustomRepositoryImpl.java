@@ -3,7 +3,6 @@ package com.vocabulary.domain.word.repository;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.vocabulary.domain.word.domain.Word;
-import com.vocabulary.domain.word.dto.WordSearchCond;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import org.springframework.stereotype.Repository;
@@ -34,8 +33,7 @@ public class WordCustomRepositoryImpl implements WordCustomRepository {
     }
 
     @Override
-    public List<Word> findAllByCond(WordSearchCond cond) {
-        String searchCond = cond.getSearchCond();
+    public List<Word> findAllByCond(String searchCond) {
         return query
                 .select(word)
                 .from(word)

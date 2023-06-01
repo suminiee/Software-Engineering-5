@@ -29,7 +29,7 @@ public class HomeController {
         }
 
         if (loginMember.getRole() == true) {
-            return "redirect:/word/words";
+            return "redirect:/words";
         }
 
         MemberInfoDto info = memberService.getInfo(loginMember.getId());

@@ -25,6 +25,11 @@ public class MemberService {
         member.setNickname(form.getNickname());
         member.setDailyWord(form.getDailyWord());
     }
+    public void update(Integer id, Integer level) {
+        Member member = memberRepository.findById(id).orElse(null);
+        member.setLevel(level);
+    }
+
 
     public void update(Integer id, String nickname, Integer dailWord) {
         Member member = memberRepository.findById(id).orElse(null);

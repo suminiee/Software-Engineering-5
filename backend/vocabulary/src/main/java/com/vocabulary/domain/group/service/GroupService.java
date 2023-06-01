@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,10 +47,39 @@ public class GroupService {
     }
 
     public void saveWord(VocaWord word) {
-        vocaWordRepository.save(word);
+        VocaWord vocaWord = vocaWordRepository.findByGroupIdAndWordId(word.getGroupId(), word.getWordId()).orElse(null);
+        if (vocaWord == null) {
+            vocaWordRepository.save(word);
+        }
     }
 
     public void deleteWord(VocaWord word) {
-        vocaWordRepository.delete(word);
+        VocaWord vocaWord = vocaWordRepository.findByGroupIdAndWordId(word.getGroupId(), word.getWordId()).orElse(null);
+        vocaWordRepository.delete(vocaWord);
+    }
+
+    public String findByGroupId(Integer groupId) {
+        return vocaRepository.findByGroupId(groupId).orElse(null).getGroupName();
+    }
+
+    public void addError(Integer id, List<Integer> error, Integer month) {
+        Voca voca = vocaRepository.getGroup(id, month + "월 오답모음").orElse(null);
+        if (voca == null) {
+            Voca newVoca = new Voca();
+            newVoca.setId(id);
+            newVoca.setGroupName(month + "월 오답모음");
+            vocaRepository.save(newVoca);
+            voca = newVoca;
+        }
+        Integer groupId = voca.getGroupId();
+        for (Integer wordId : error) {
+            VocaWord find = vocaWordRepository.findByGroupIdAndWordId(groupId, wordId).orElse(null);
+            if (find == null) {
+                VocaWord vocaWord = new VocaWord();
+                vocaWord.setGroupId(groupId);
+                vocaWord.setWordId(wordId);
+                vocaWordRepository.save(vocaWord);
+            }
+        }
     }
 }

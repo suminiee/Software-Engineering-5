@@ -14,4 +14,6 @@ public interface VocaRepository extends JpaRepository<Voca, Integer> {
 
     @Query("select v from Voca v where v.id = :id and v.groupName = :name")
     Optional<Voca> getGroup(Integer id, String name);
+
+    Optional<Voca> findByGroupId(Integer groupId);
 }

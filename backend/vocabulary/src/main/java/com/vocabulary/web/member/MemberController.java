@@ -39,7 +39,7 @@ public class MemberController {
         }
         if (form.getLoginId() != null) {
             if (memberService.findByLoginId(form.getLoginId()) != null) {
-                bindingResult.addError(new FieldError("signUpBase", "loginId", "이미 등록된 아이디입니다."));
+                bindingResult.addError(new FieldError("signUpBase", "loginId", "이미 존재하는 아이디입니다."));
             }
         }
 

@@ -2,7 +2,6 @@ package com.vocabulary.domain.word.service;
 
 import com.vocabulary.domain.word.domain.Word;
 import com.vocabulary.domain.word.dto.WordForm.*;
-import com.vocabulary.domain.word.dto.WordSearchCond;
 import com.vocabulary.domain.word.repository.WordRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +35,7 @@ public class WordService {
     public List<Word> findAll() {
         return wordRepository.findAll();
     }
-    public List<Word> findAllByCond(WordSearchCond cond) {
+    public List<Word> findAllByCond(String cond) {
         return wordRepository.findAllByCond(cond);
     }
 
